@@ -41,7 +41,8 @@ header,
 }
 
 /* Form */
-#form input {
+#form input,
+.edit {
   border: none;
   outline: none;
   width: 95%;
