@@ -152,7 +152,7 @@ Open liveserver in VS Code
 
 ## 🔭 Future Features <a name="future-features"></a>
 
-- [ ] **Add and remove tasks**
+- [ ] **Clear all completed functionality**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
