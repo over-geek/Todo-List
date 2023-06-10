@@ -7,7 +7,7 @@ const addTask = (task) => {
   list.innerHTML += `
     <li id=${task.index} class="task">
       <div class="task-info">
-        <input type="checkbox" ${task.completed ? 'checked' : ''}>
+        <input type="checkbox" ${task.completed ? 'checked' : ''} id=check${task.index} onclick="completedTask(${task.index})">
         <input value="${task.description}" type="text" class="edit">
       </div>
       <button type="button" onclick="remove(${task.index})">

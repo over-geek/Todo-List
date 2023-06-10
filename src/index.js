@@ -1,8 +1,12 @@
 import './style.css';
 import addTask from './modules/addTask.js';
-import { addTaskItem, getTask, updateTask } from './modules/storeTask.js';
+import {
+  addTaskItem, deleteTask, getTask, updateTask,
+} from './modules/storeTask.js';
+import handleCompleted from './modules/handleCompleted.js';
 import refresh from './assets/refresh.png';
 import enter from './assets/enter.png';
+import removeTask from './modules/removeTask';
 
 const refreshImg = document.getElementById('refreshImg');
 const enterImg = document.getElementById('enterImg');
@@ -58,4 +62,24 @@ textInput.forEach((todo, index) => {
       window.location.reload();
     }
   });
+});
+
+window.remove = (index) => {
+  deleteTask(index);
+  removeTask(index);
+};
+
+window.completedTask = (index) => {
+  handleCompleted(index);
+};
+
+document.getElementById('clear-completed').addEventListener('click', () => {
+  const tasks = getTask();
+  const clearCompleted = tasks.filter((task) => !task.completed);
+  clearCompleted.forEach((task, i) => {
+    task.index = i;
+  });
+
+  localStorage.setItem('data', JSON.stringify(clearCompleted));
+  window.location.reload();
 });
