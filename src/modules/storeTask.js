@@ -18,7 +18,7 @@ const deleteTask = (index) => {
   const tasks = getTask();
   const deletedTasks = tasks.filter((task) => task.index !== index);
   deletedTasks.forEach((task, i) => {
-    task.index = i;
+    task.index = i + 1;
   });
   localStorage.setItem('data', JSON.stringify(deletedTasks));
   window.location.reload();
