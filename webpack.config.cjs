@@ -15,10 +15,6 @@ module.exports = {
   },
   devServer: {
     static: './dist',
-    open: true,
-    hot: true,
-    compress: true,
-    historyApiFallback: true,
   },
   module: {
     rules: [

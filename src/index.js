@@ -82,4 +82,6 @@ document.getElementById('clear-completed').addEventListener('click', () => {
 
   localStorage.setItem('data', JSON.stringify(clearCompleted));
   window.location.reload();
+=======
+};
 });
