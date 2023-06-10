@@ -28,7 +28,7 @@ document.getElementById('form').addEventListener('submit', (e) => {
   const tasks = getTask();
   const taskDescription = document.getElementById('task-description').value;
   const todoTasks = {
-    index: tasks.length,
+    index: tasks.length + 1,
     description: taskDescription,
     completed: false,
   };
