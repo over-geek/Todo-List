@@ -6,7 +6,7 @@ import {
 import handleCompleted from './modules/handleCompleted.js';
 import refresh from './assets/refresh.png';
 import enter from './assets/enter.png';
-import removeTask from './modules/removeTask';
+import removeTask from './modules/removeTask.js';
 
 const refreshImg = document.getElementById('refreshImg');
 const enterImg = document.getElementById('enterImg');
@@ -28,7 +28,7 @@ document.getElementById('form').addEventListener('submit', (e) => {
   const tasks = getTask();
   const taskDescription = document.getElementById('task-description').value;
   const todoTasks = {
-    index: tasks.length + 1,
+    index: tasks.length,
     description: taskDescription,
     completed: false,
   };
