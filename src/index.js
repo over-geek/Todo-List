@@ -77,7 +77,7 @@ document.getElementById('clear-completed').addEventListener('click', () => {
   const tasks = getTask();
   const clearCompleted = tasks.filter((task) => !task.completed);
   clearCompleted.forEach((task, i) => {
-    task.index = i;
+    task.index = i + 1;
   });
 
   localStorage.setItem('data', JSON.stringify(clearCompleted));
