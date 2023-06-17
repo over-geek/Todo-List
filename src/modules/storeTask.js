@@ -1,3 +1,10 @@
+const saveLocalStorage = (key, value) => localStorage.setItem(key, value);
+
+const retrieveLocalStorage = (key) => {
+  const data = localStorage.getItem(key) ? JSON.parse(localStorage.getItem(key)) : [];
+  return data;
+};
+
 const getTask = () => {
   let tasks;
   if (localStorage.getItem('data') === null) {
@@ -29,14 +36,8 @@ const updateTask = (index, description) => {
   const tasks = getTask();
   const task = tasks.find((taskItem) => taskItem.index === index);
   task.description = description;
-  localStorage.setItem('data', JSON.stringify(tasks));
-};
-
-const saveLocalStorage = (key, value) => localStorage.setItem(key, value);
-
-const retrieveLocalStorage = (key) => {
-  const data = localStorage.getItem(key) ? JSON.parse(localStorage.getItem(key)) : [];
-  return data;
+  saveLocalStorage('data', JSON.stringify(tasks));
+  return task.description;
 };
 
 export {
