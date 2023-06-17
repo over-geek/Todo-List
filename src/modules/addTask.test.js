@@ -30,4 +30,10 @@ describe('tasks module', () => {
     const newListItems = document.querySelectorAll('#todo-list .task-item');
     expect(newListItems).toHaveLength(2);
   });
+  test('save one task object', () => {
+    const mockObj = [{ index: 1, description: 'task1', completed: false }];
+    const mockKey = 'task-list';
+    saveLocalStorage(mockKey, JSON.stringify(mockObj));
+    expect(retrieveLocalStorage(mockKey)).toEqual(mockObj);
+  });
 });
