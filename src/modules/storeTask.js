@@ -12,6 +12,7 @@ const addTaskItem = (task) => {
   const tasks = getTask();
   tasks.push(task);
   localStorage.setItem('data', JSON.stringify(tasks));
+  return tasks;
 };
 
 const deleteTask = (index) => {
@@ -31,6 +32,13 @@ const updateTask = (index, description) => {
   localStorage.setItem('data', JSON.stringify(tasks));
 };
 
+const saveLocalStorage = (key, value) => localStorage.setItem(key, value);
+
+const retrieveLocalStorage = (key) => {
+  const data = localStorage.getItem(key) ? JSON.parse(localStorage.getItem(key)) : [];
+  return data;
+};
+
 export {
-  getTask, addTaskItem, deleteTask, updateTask,
+  getTask, addTaskItem, deleteTask, updateTask, saveLocalStorage, retrieveLocalStorage,
 };
