@@ -50,3 +50,25 @@ describe('Update task complete status and description', () => {
     expect(checkBox[0].checked).toBe(true);
   });
 });
+describe('clear completed tasks', () => {
+  const mockObj = [
+    { index: 1, description: 'task1', complete: true },
+    { index: 2, description: 'task2', complete: true },
+    { index: 3, description: 'task3', complete: false },
+    { index: 4, description: 'task3', complete: false },
+  ];
+  saveLocalStorage('data', JSON.stringify(mockObj));
+  test('delete 2 completed tasks from 4 tasks', () => {
+    document.body.innerHTML = `
+      <ul id="todo-list">
+        <li class="task-item" id="1">Task1</li>
+        <li class="task-item" id="2">Task2</li>
+        <li class="task-item" id="3">Task3</li>
+        <li class="task-item" id="4">Task4</li>
+      </ul>
+    `;
+    deleteCompleted();
+    const listItems = document.querySelectorAll('#todo-list .task-item');
+    expect(listItems).toHaveLength(2);
+  });
+});
